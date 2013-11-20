@@ -33,6 +33,14 @@ body, a:link, a:visited, a:active{
     -webkit-animation:spin 1s ease-in-out infinite;
 }
 
+@-webkit-keyframes slide {
+  50% {left: 600px;}
+  50% {left: 0px;}
+}
+
+
 .ken{
   position: absolute;
+  -webkit-animation:slide 3s ease-in-out infinite;
 }
+
