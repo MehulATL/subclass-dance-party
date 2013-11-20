@@ -52,6 +52,12 @@
           );
           window.dancers.push(dancer);
           $('body').append(dancer.$node);
+
+          // iterate over window dancers
+          // grab positions , find any collisions
+          // do shit when there is a collision
+          // use setInterval at half second - 250 
+           setInterval(function (){ findCollision();}, 250);
         });
       });
     </script>
