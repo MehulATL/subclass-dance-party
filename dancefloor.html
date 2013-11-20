@@ -6,18 +6,27 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/gief.js"></script>
+    <script src="src/ken.js"></script>
   </head>
   <body>
 
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="Gief">add Zangief!</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="Ken">add Ken!</a>
+      <a href="#" class = "lineup">Line Dancers Up</a>
     </div>
-
     <script>
       $(document).ready(function(){
         window.dancers = [];
 
+        $(".lineup").on("click", function(event){
+          for (var i = 0; i < window.dancers.length; i++){
+            window.dancers[i].lineup(0);
+          }
+        });
         $(".addDancerButton").on("click", function(event){
           /* This function sets up the click handlers for the create-dancer
            * buttons on index.html. You should not need to alter it.
@@ -32,7 +41,6 @@
            * to the stage.
            */
           var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
           // get the maker function for the kind of dancer we're supposed to make
           var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -42,7 +50,7 @@
             $("body").width() * Math.random(),
             Math.random() * 1000
           );
-
+          window.dancers.push(dancer);
           $('body').append(dancer.$node);
         });
       });
